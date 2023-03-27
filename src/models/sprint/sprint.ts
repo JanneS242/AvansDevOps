@@ -1,9 +1,9 @@
-import { ReportBehaviour } from "../report/reportBehaviour";
-import { BacklogItem } from "./backlogItem";
-import { ScrumMaster } from "./users/scrumMaster";
-import { User } from "./users/user";
+import { ReportBehaviour } from "../../report/reportBehaviour";
+import { BacklogItem } from "../backlogItem";
+import { ScrumMaster } from "../users/scrumMaster";
+import { User } from "../users/user";
 
-export class Sprint {
+export abstract class Sprint {
     private sprintNr : number;
     private title: string;
     private startDate: Date;
@@ -24,34 +24,9 @@ export class Sprint {
         this.productBacklog = new Array<BacklogItem>;
     }
 
+    // public abstract addBacklogItemToList(backlogItem : BacklogItem): void;
+
     public addBacklogItemToList(backlogItem : BacklogItem){
         this.productBacklog.push(backlogItem);
     }
-
-    // public removeBacklogItemFromList(){
-
-    // }
-
-    public getTitle(): string {
-        return this.title;
-    }
-    public setTitle(value: string) {
-        this.title = value;
-    }
-
-    public getStartDate(): Date {
-        return this.startDate;
-    }
-    public setStartDate(value: Date) {
-        this.startDate = value;
-    }
-
-    public getEndDate(): Date {
-        return this.endDate;
-    }
-    public setEndDate(value: Date) {
-        this.endDate = value;
-    }
-
-
 }
