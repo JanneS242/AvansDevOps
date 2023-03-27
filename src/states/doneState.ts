@@ -1,16 +1,17 @@
+import { Activity } from "../models/activity";
 import { BacklogItem } from "../models/backlogItem";
 import { IState } from "./IState";
 import { ToDoState } from "./toDoState";
 
 export class DoneState implements IState{
-    private backlogItem : BacklogItem;
+    private item : BacklogItem | Activity;
 
-    public constructor(item : BacklogItem){
-        this.backlogItem = item;
+    public constructor(item : BacklogItem | Activity){
+        this.item = item;
     }
     
     todo(): void {
-        this.backlogItem.changeState(new ToDoState(this.backlogItem));
+        this.item.changeState(new ToDoState(this.item));
     }
     doing(): void {
         throw new Error("Method is not possible");

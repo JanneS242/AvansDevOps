@@ -1,12 +1,13 @@
+import { Activity } from "../models/activity";
 import { BacklogItem } from "../models/backlogItem";
 import { IState } from "./IState";
 import { TestedState } from "./testedState";
 
 export class TestingState implements IState{
-    private backlogItem : BacklogItem;
+    private item : BacklogItem | Activity;
 
-    public constructor(item : BacklogItem){
-        this.backlogItem = item;
+    public constructor(item : BacklogItem | Activity){
+        this.item = item;
     }
     
     todo(): void {
@@ -22,7 +23,7 @@ export class TestingState implements IState{
         throw new Error("Method is not possible");
     }
     tested(): void {
-        this.backlogItem.changeState(new TestedState(this.backlogItem));
+        this.item.changeState(new TestedState(this.item));
     }
     done(): void {
         throw new Error("Method is not possible");

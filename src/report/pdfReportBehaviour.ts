@@ -3,7 +3,7 @@ import * as fs from 'fs';
 
 export class PdfReportBehaviour implements ReportBehaviour {
     generateReport(sprintNr : number) {
-        fs.writeFile(`resources/txt/report-${sprintNr}.pdf`, this.toString(), function (err) {
+        fs.writeFile(`resources/pdf/report-${sprintNr}.pdf`, this.toString(), function (err) {
             if (err) {
                 return console.error(err);
             }

@@ -3,7 +3,7 @@ import * as fs from 'fs';
 
 export class PngReportBehaviour implements ReportBehaviour {
     generateReport(sprintNr : number) {
-        fs.writeFile(`resources/txt/report-${sprintNr}.png`, this.toString(), function (err) {
+        fs.writeFile(`resources/png/report-${sprintNr}.png`, this.toString(), function (err) {
             if (err) {
                 return console.error(err);
             }
