@@ -29,7 +29,16 @@ export class TestedState implements IState{
         throw new Error("Method is not possible");
     }
     done(): void {
-        this.item.changeState(new DoneState(this.item));
+        if(this.item instanceof BacklogItem ){
+            if(this.item.checkStatesOfActivities()){
+                this.item.changeState(new DoneState(this.item));
+            } else{
+                console.error("Not all acitivties are done");
+            }
+        } else{
+            this.item.changeState(new DoneState(this.item));
+        }
+        
     }
     
 }
