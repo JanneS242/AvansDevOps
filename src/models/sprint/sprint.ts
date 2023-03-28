@@ -1,5 +1,6 @@
 import { ReportBehaviour } from "../../report/reportBehaviour";
 import { BacklogItem } from "../backlogItem";
+import { Pipeline } from "../pipeline/pipeline";
 import { ProductOwner } from "../users/productOwner";
 import { ScrumMaster } from "../users/scrumMaster";
 import { User } from "../users/user";
@@ -14,6 +15,7 @@ export abstract class Sprint {
     public scrumMaster : User;
     public productBacklog : Array<BacklogItem>;
     public productOwner : User;
+    public pipeline : Pipeline;
 
     public constructor(sprintNr : number, title : string, startDate : Date, endDate : Date, scrumMaster : ScrumMaster, reportGenerator : ReportBehaviour, productOwner : ProductOwner){
         this.sprintNr = sprintNr;
@@ -25,6 +27,7 @@ export abstract class Sprint {
         this.productOwner = productOwner;
 
         this.productBacklog = new Array<BacklogItem>;
+        this.pipeline = new Pipeline();
     }
 
     public abstract finish(): void;
