@@ -1,3 +1,4 @@
+import { ISubscriber } from "../observer/ISubscriber";
 import { BacklogItem } from "./backlogItem";
 import { Message } from "./message";
 
@@ -9,6 +10,6 @@ export class Forum{
     constructor(issue : BacklogItem){
         this.issue = issue;
         this.messages = new Array<Message>;
-        this.subscibers = new Array<ISubscriber>
+        this.subscribers = new Array<ISubscriber>
     }
 }

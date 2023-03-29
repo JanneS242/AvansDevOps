@@ -1,11 +1,22 @@
-import { BacklogItem } from "../backlogItem";
+import { BuildAction } from "../pipeline/actions/buildAction";
+import { Pipeline } from "../pipeline/pipeline";
 import { Sprint } from "../sprint/sprint";
 
 export class ReleaseSprint extends Sprint{
-    public finish(): void {
-        throw new Error("Method not implemented.");
+    resultsGood : boolean = false;
+    cancelled : boolean = !this.resultsGood;
+        
+    
+    public startPipeline(): void {
+        if(this.cancelled){
+            console.log("Release sprint is cancelled");
+            //notificatie naar SM
+        } else{
+            console.log("Starting pipeline for release sprint");
+            const pipeline = new Pipeline();
+            pipeline.addAction(new BuildAction("builder Name", "build tool"));
+
+            //something with a visitor
+        }
     }
-    
-    
-    //release logic here
 }
