@@ -19,15 +19,15 @@ export class Forum{
     }
 
     addMessage(m : Message){
-        if(this.issue.currentState !instanceof DoneState){
+        if(this.issue.currentState instanceof DoneState){
+            console.log("This issue is done. There can be no reaction anymore");
+        } else {
             this.messages.push(m);
             this.subscribers.forEach(user => {
                 user.notificationTypes.forEach(type => {
                     type.notify();
                 });
             });
-        } else {
-            console.log("This issue is done. There can be no reaction anymore");
         }
         
     }
