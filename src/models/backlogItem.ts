@@ -7,15 +7,15 @@ import { Developer } from "./users/developer";
 import { User } from "./users/user";
 
 export class BacklogItem {
-    public title : string;
-    public definitionOfDone : string;
+    public title : String;
+    public definitionOfDone : String;
     public developer : User;
     public currentState : IState;
     public activities : Array<Activity>;
 
     public sprint : Sprint;
 
-    constructor(title : string, DoD : string, developer : Developer, sprint : Sprint){
+    constructor(title : String, DoD : String, developer : Developer, sprint : Sprint){
         this.title = title;
         this.definitionOfDone = DoD;
         this.developer = developer;

@@ -1,5 +1,5 @@
 export class EmailAdapter{
-    sendEmail(email : string){
+    sendEmail(email : String){
         console.log(`Send email to ${email}`);
     }
 }

@@ -1,8 +1,5 @@
 import { Activity } from "../models/activity";
 import { BacklogItem } from "../models/backlogItem";
-import { ScrumMaster } from "../models/users/scrumMaster";
-import { EmailNotification } from "../observer/emailNotification";
-import { SMSNotification } from "../observer/SMSNotification";
 import { DoneState } from "./doneState";
 import { IState } from "./IState";
 import { ReadyForTestingState } from "./readyForTestingState";

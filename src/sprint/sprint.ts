@@ -30,7 +30,6 @@ export abstract class Sprint {
 
             this.scrumMaster = scrumMaster;
 
-            //this.productBacklog = new Array<BacklogItem>;
             this.teamMembers = new Array<User>;
             
     }

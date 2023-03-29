@@ -1,15 +1,15 @@
 import { INotification } from "../../observer/INotification";
 
 export abstract class User{
-    public firstName : string;
-    public lastName : string;
+    public firstName : String;
+    public lastName : String;
     public dateOfBirth: Date;
-    public email : string;
-    public phoneNumber : string;
+    public email : String;
+    public phoneNumber : String;
 
     public notificationTypes: Array<INotification>
 
-    public constructor(firstName: string, lastName : string, dateOfBirth: Date, email : string, phoneNumber : string){
+    public constructor(firstName: String, lastName : String, dateOfBirth: Date, email : String, phoneNumber : String){
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;

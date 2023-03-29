@@ -1,8 +1,6 @@
 import { Activity } from "../models/activity";
 import { BacklogItem } from "../models/backlogItem";
 import { Tester } from "../models/users/tester";
-import { EmailNotification } from "../observer/emailNotification";
-import { SMSNotification } from "../observer/SMSNotification";
 import { IState } from "./IState";
 import { ReadyForTestingState } from "./readyForTestingState";
 

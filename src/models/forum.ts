@@ -1,4 +1,3 @@
-import { INotification } from "../observer/INotification";
 import { DoneState } from "../states/doneState";
 import { BacklogItem } from "./backlogItem";
 import { Message } from "./message";
