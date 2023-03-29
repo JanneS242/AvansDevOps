@@ -1,16 +1,9 @@
-import { PipelineAction } from "./pipelineAction";
-import { PipelineVisitor } from "./pipelineVisitor";
+import { CompositeComponent } from "./compositeComponent";
 
-export class Pipeline implements PipelineAction{
-    private actions: PipelineAction[] = [];
-    
-    addAction(action : PipelineAction){
-        this.actions.push(action);
-    }
+export class Pipeline{
+    jobs : Array<CompositeComponent>;
 
-    accept(visitor: PipelineVisitor){
-        for(const action of this.actions){
-            action.accept(visitor);
-        }
+    constructor(){
+        this.jobs = new Array<CompositeComponent>;
     }
 }

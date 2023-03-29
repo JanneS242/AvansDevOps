@@ -1,4 +1,3 @@
-import { BuildAction } from "../models/pipeline/actions/buildAction";
 import { Pipeline } from "../models/pipeline/pipeline";
 import { Sprint } from "./sprint";
 
@@ -14,8 +13,8 @@ export class ReviewSprint extends Sprint{
         if(this.summaryUploaded){
             console.log("Starting pipeline for reviewSprint");
             
-            const pipeline = new Pipeline();
-            pipeline.addAction(new BuildAction("builder Name", "build tool"));
+            // const pipeline = new Pipeline();
+            // pipeline.addAction(new BuildAction("builder Name", "build tool"));
 
             //something with a visitor
         } else {

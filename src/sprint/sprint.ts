@@ -1,9 +1,4 @@
-import { INotification } from "../observer/INotification";
 import { Report } from "../report/report";
-import { ReportBehaviour } from "../report/reportBehaviour";
-import { BacklogItem } from "../models/backlogItem";
-import { Pipeline } from "../models/pipeline/pipeline";
-import { ProductOwner } from "../models/users/productOwner";
 import { ScrumMaster } from "../models/users/scrumMaster";
 import { User } from "../models/users/user";
 
@@ -46,5 +41,8 @@ export abstract class Sprint {
         this.report = report;
     }
 
+    public generateReport(){
+        this.report.generateReport();
+    }
 
 }
