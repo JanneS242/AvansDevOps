@@ -1,7 +1,10 @@
+import { Sprint } from "../sprint/sprint";
+import { SprintBacklog } from "../sprint/sprintBacklog";
 import { DoneState } from "../states/doneState";
 import { IState } from "../states/IState";
 import { ToDoState } from "../states/toDoState";
 import { Activity } from "./activity";
+import { Developer } from "./users/developer";
 import { User } from "./users/user";
 
 export class BacklogItem {
@@ -11,12 +14,15 @@ export class BacklogItem {
     public currentState : IState;
     public activities : Array<Activity>;
 
-    constructor(title : string, DoD : string, developer : User){
+    public sprint : Sprint;
+
+    constructor(title : string, DoD : string, developer : Developer, sprint : Sprint){
         this.title = title;
         this.definitionOfDone = DoD;
         this.developer = developer;
         this.currentState = new ToDoState(this);
         this.activities = new Array<Activity>;
+        this.sprint = sprint;
     }
 
     public changeState(state : IState) : void 

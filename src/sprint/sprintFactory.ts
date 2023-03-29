@@ -1,16 +1,14 @@
-import { ReportBehaviour } from "../../report/reportBehaviour";
-import { ProductOwner } from "../users/productOwner";
-import { ScrumMaster } from "../users/scrumMaster";
+import { Report } from "../report/report";
 import { ReleaseSprint } from "./releaseSprint";
 import { ReviewSprint } from "./reviewSprint";
 
 export class SprintFactory{
-    createSprint(type: string, sprintNr : number, title : string, startDate : Date, endDate : Date, scrumMaster : ScrumMaster, reportGenerator : ReportBehaviour, productOwner : ProductOwner){
+    createSprint(type: string, sprintNr : number, title : string, startDate : Date, endDate : Date, report : Report){
         switch(type) {
             case 'review':
-                return new ReviewSprint(sprintNr, title, startDate, endDate, scrumMaster,reportGenerator, productOwner);
+                return new ReviewSprint(sprintNr, title, startDate, endDate, report);
             case 'release':
-                return new ReleaseSprint(sprintNr, title, startDate, endDate, scrumMaster,reportGenerator, productOwner);
+                return new ReleaseSprint(sprintNr, title, startDate, endDate, report);
             default:
                 throw new Error(`Invalid sprint type: ${type}`);
         }

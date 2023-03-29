@@ -1,4 +1,4 @@
-import { ISubscriber } from "../observer/ISubscriber";
+import { ISubscriber } from "../observer/INotification";
 import { BacklogItem } from "./backlogItem";
 import { Message } from "./message";
 

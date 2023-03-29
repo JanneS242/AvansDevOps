@@ -1,9 +1,6 @@
-import { ReportBehaviour } from "../../report/reportBehaviour";
-import { BacklogItem } from "../backlogItem";
-import { BuildAction } from "../pipeline/actions/buildAction";
-import { Pipeline } from "../pipeline/pipeline";
-import { Sprint } from "../sprint/sprint";
-import { User } from "../users/user";
+import { BuildAction } from "../models/pipeline/actions/buildAction";
+import { Pipeline } from "../models/pipeline/pipeline";
+import { Sprint } from "./sprint";
 
 export class ReviewSprint extends Sprint{
     summaryUploaded: boolean = false;

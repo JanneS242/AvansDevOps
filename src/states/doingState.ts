@@ -1,5 +1,8 @@
 import { Activity } from "../models/activity";
 import { BacklogItem } from "../models/backlogItem";
+import { Tester } from "../models/users/tester";
+import { EmailNotification } from "../observer/emailNotification";
+import { SMSNotification } from "../observer/SMSNotification";
 import { IState } from "./IState";
 import { ReadyForTestingState } from "./readyForTestingState";
 
@@ -17,6 +20,17 @@ export class DoingState implements IState{
         throw new Error("Method is not possible");
     }
     readyForTesting(): void {
+        //notificatie naar tester
+        if(this.item instanceof BacklogItem){
+            this.item.sprint.teamMembers.forEach(member => {
+                if(member instanceof Tester){
+                    member.notificationTypes.forEach(type => {
+                        type.notify();
+                    });
+                }
+            });
+            
+        }
         this.item.changeState(new ReadyForTestingState(this.item));
     }
     testing(): void {

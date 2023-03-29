@@ -1,5 +1,8 @@
 import { Activity } from "../models/activity";
 import { BacklogItem } from "../models/backlogItem";
+import { ScrumMaster } from "../models/users/scrumMaster";
+import { EmailNotification } from "../observer/emailNotification";
+import { SMSNotification } from "../observer/SMSNotification";
 import { DoneState } from "./doneState";
 import { IState } from "./IState";
 import { ReadyForTestingState } from "./readyForTestingState";
@@ -13,8 +16,18 @@ export class TestedState implements IState{
     }
     
     todo(): void {
+        //notificatie naar scrum master
+        if(this.item instanceof BacklogItem){
+            this.item.sprint.teamMembers.forEach(member => {
+                if(member instanceof ScrumMaster){
+                    member.notificationTypes.forEach(type => {
+                        type.notify();
+                    });
+                }
+            });
+            
+        }
         this.item.changeState(new ToDoState(this.item));
-        // + notificatie naar scrum master
     }
     doing(): void {
         throw new Error("Method is not possible");
