@@ -18,14 +18,9 @@ export class TestedState implements IState{
     todo(): void {
         //notificatie naar scrum master
         if(this.item instanceof BacklogItem){
-            this.item.sprint.teamMembers.forEach(member => {
-                if(member instanceof ScrumMaster){
-                    member.notificationTypes.forEach(type => {
-                        type.notify();
-                    });
-                }
-            });
-            
+            this.item.sprint.scrumMaster.notificationTypes.forEach(type => {
+                type.notify();
+            });   
         }
         this.item.changeState(new ToDoState(this.item));
     }

@@ -1,5 +1,4 @@
 import { Sprint } from "../sprint/sprint";
-import { SprintBacklog } from "../sprint/sprintBacklog";
 import { DoneState } from "../states/doneState";
 import { IState } from "../states/IState";
 import { ToDoState } from "../states/toDoState";
