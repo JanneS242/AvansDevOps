@@ -4,12 +4,12 @@ import { CompositeComponent } from "./compositeComponent";
 import { Visitor } from "./visitor";
 
 export class Pipeline{
-    name : String;
+    name : string;
     jobs : Array<CompositeComponent>;
     pipelineStatus : PipelineStatus = PipelineStatus.NotStarted
     sprint? : Sprint;
 
-    constructor(name : String){
+    constructor(name : string){
         this.name = name;
         this.jobs = new Array<CompositeComponent>;
     }

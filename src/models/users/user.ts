@@ -1,15 +1,15 @@
 import { INotification } from "../../observer/INotification";
 
 export abstract class User{
-    public firstName : String;
-    public lastName : String;
+    public firstName : string;
+    public lastName : string;
     public dateOfBirth: Date;
-    public email : String;
-    public phoneNumber : String;
+    public email : string;
+    public phoneNumber : string;
 
     public notificationTypes: Array<INotification>
 
-    public constructor(firstName: String, lastName : String, dateOfBirth: Date, email : String, phoneNumber : String){
+    public constructor(firstName: string, lastName : string, dateOfBirth: Date, email : string, phoneNumber : string){
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -23,7 +23,7 @@ export abstract class User{
         this.notificationTypes.push(type);
     }
 
-    public getFullName() : String{
+    public getFullName() : string{
         return this.firstName + " " + this.lastName;
     }
 

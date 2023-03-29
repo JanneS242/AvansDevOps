@@ -1,10 +1,10 @@
 import { Sprint } from "../sprint/sprint";
 
 export class Project{
-    projectName : String;
+    projectName : string;
     sprints : Array<Sprint>;
 
-    constructor(projectName : String){
+    constructor(projectName : string){
         this.projectName = projectName;
         this.sprints = new Array<Sprint>;
     }

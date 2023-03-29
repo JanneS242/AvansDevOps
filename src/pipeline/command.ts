@@ -3,7 +3,7 @@ import { Visitor } from "./visitor";
 
 export class Command extends Component{
 
-    constructor(public commandLine : String){
+    constructor(public commandLine : string){
         super();
     }
     

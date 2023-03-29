@@ -1,11 +1,11 @@
 import { User } from "./users/user";
 
 export class Message{
-    public title : String;
-    public content : String;
+    public title : string;
+    public content : string;
     public author : User;
 
-    constructor(title : String, content : String, author : User){
+    constructor(title : string, content : string, author : User){
         this.title = title;
         this.content = content;
         this.author = author;

@@ -3,7 +3,7 @@ import { Visitor } from "./visitor";
 
 export class Folder extends CompositeComponent{
     
-    constructor(title : String){
+    constructor(title : string){
         super(title);
     }
 

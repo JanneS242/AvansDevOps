@@ -2,10 +2,10 @@ import { EmailAdapter } from "./adapter/emailAdapter";
 import { INotification } from "./INotification";
 
 export class EmailNotification implements INotification{
-    email: String;
+    email: string;
     emailAdapter : EmailAdapter;
 
-    constructor(email : String, emailAdapter : EmailAdapter){
+    constructor(email : string, emailAdapter : EmailAdapter){
         this.email = email;
         this.emailAdapter = emailAdapter;
     }

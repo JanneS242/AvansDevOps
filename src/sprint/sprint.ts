@@ -5,7 +5,7 @@ import { Pipeline } from "../pipeline/pipeline";
 
 export abstract class Sprint {
     public sprintNr : number;
-    public title: String;
+    public title: string;
     public startDate: Date;
     public endDate: Date;
     public pipeline? : Pipeline;
@@ -17,7 +17,7 @@ export abstract class Sprint {
 
     public constructor(
             sprintNr : number,
-            title : String, 
+            title : string, 
             startDate : Date, 
             endDate : Date, 
             public report : Report,

@@ -2,11 +2,11 @@ import { IState } from "../states/IState";
 import { ToDoState } from "../states/toDoState";
 
 export class Activity{
-    public title : String;
-    public definitionOfDone : String;
+    public title : string;
+    public definitionOfDone : string;
     public currentState : IState;
 
-    constructor(title : String, doD : String){
+    constructor(title : string, doD : string){
         this.title = title;
         this.definitionOfDone = doD;
         this.currentState = new ToDoState(this);
