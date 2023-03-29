@@ -1,3 +1,4 @@
+import { ExecuteVisitor } from "../models/pipeline/executeVisitor";
 import { Pipeline } from "../models/pipeline/pipeline";
 import { ScrumMaster } from "../models/users/scrumMaster";
 import { Sprint } from "./sprint";
@@ -20,10 +21,11 @@ export class ReleaseSprint extends Sprint{
             });
         } else{
             console.log("Starting pipeline for release sprint");
-            // const pipeline = new Pipeline();
-            // pipeline.addAction(new BuildAction("builder Name", "build tool"));
-
-            //something with a visitor
+            
+            if(this.pipeline != null){
+                const executeVisitor = new ExecuteVisitor();
+                this.pipeline.accept(executeVisitor);
+            }
         }
     }
 }

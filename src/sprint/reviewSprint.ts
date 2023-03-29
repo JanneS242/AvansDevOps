@@ -1,4 +1,4 @@
-import { Pipeline } from "../models/pipeline/pipeline";
+import { ExecuteVisitor } from "../models/pipeline/executeVisitor";
 import { Sprint } from "./sprint";
 
 export class ReviewSprint extends Sprint{
@@ -7,16 +7,15 @@ export class ReviewSprint extends Sprint{
     public uploadSummary(){
         this.summaryUploaded = true;
     }
-
     
     public startPipeline(): void {
         if(this.summaryUploaded){
             console.log("Starting pipeline for reviewSprint");
             
-            // const pipeline = new Pipeline();
-            // pipeline.addAction(new BuildAction("builder Name", "build tool"));
-
-            //something with a visitor
+            if(this.pipeline != null){
+                const executeVisitor = new ExecuteVisitor();
+                this.pipeline.accept(executeVisitor);
+            }
         } else {
             console.log("Cannot start pipeline because there is no summaryUploaded")
         }

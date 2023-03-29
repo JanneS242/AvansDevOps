@@ -2,6 +2,7 @@ import { Component } from "./component";
 import { Visitor } from "./visitor";
 
 export class Command extends Component{
+
     constructor(public commandLine : String){
         super();
     }
@@ -9,5 +10,4 @@ export class Command extends Component{
     public acceptVisitor(visitor: Visitor) {
         visitor.visitCommand(this);
     }
-
 }

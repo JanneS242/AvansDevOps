@@ -1,12 +1,16 @@
 import { Report } from "../report/report";
 import { ScrumMaster } from "../models/users/scrumMaster";
 import { User } from "../models/users/user";
+import { Pipeline } from "../models/pipeline/pipeline";
 
 export abstract class Sprint {
     public sprintNr : number;
     public title: String;
     public startDate: Date;
     public endDate: Date;
+    public pipeline? : Pipeline;
+    public finished : boolean = false;
+    public closedForChanges : boolean = false;
     
     public scrumMaster : ScrumMaster;
     public teamMembers : Array<User>;
@@ -34,15 +38,29 @@ export abstract class Sprint {
     public abstract startPipeline(): void;
 
     public addTeamMember(member : User){
-        this.teamMembers.push(member);
+        if(!this.closedForChanges){
+            this.teamMembers.push(member);
+        }
+        
     }
 
     public setReport(report: Report){
-        this.report = report;
+        if(!this.closedForChanges){
+            this.report = report;
+        }
     }
 
     public generateReport(){
-        this.report.generateReport();
+        if(!this.closedForChanges){
+            this.report.generateReport();
+        }
     }
+
+    public setPipeline(pipeline : Pipeline){
+        pipeline.sprint = this;
+        
+        this.pipeline = pipeline;
+    }
+
 
 }
