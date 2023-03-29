@@ -1,5 +1,5 @@
-import { Sprint } from "../../sprint/sprint";
-import { ProductOwner } from "../users/productOwner";
+import { Sprint } from "../sprint/sprint";
+import { ProductOwner } from "../models/users/productOwner";
 import { CompositeComponent } from "./compositeComponent";
 import { Visitor } from "./visitor";
 

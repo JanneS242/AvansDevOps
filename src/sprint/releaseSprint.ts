@@ -1,5 +1,5 @@
-import { ExecuteVisitor } from "../models/pipeline/executeVisitor";
-import { Pipeline } from "../models/pipeline/pipeline";
+import { ExecuteVisitor } from "../pipeline/executeVisitor";
+import { Pipeline } from "../pipeline/pipeline";
 import { ScrumMaster } from "../models/users/scrumMaster";
 import { Sprint } from "./sprint";
 

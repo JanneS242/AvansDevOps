@@ -1,7 +1,7 @@
 import { Report } from "../report/report";
 import { ScrumMaster } from "../models/users/scrumMaster";
 import { User } from "../models/users/user";
-import { Pipeline } from "../models/pipeline/pipeline";
+import { Pipeline } from "../pipeline/pipeline";
 
 export abstract class Sprint {
     public sprintNr : number;

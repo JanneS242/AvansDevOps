@@ -1,4 +1,4 @@
-import { ExecuteVisitor } from "../models/pipeline/executeVisitor";
+import { ExecuteVisitor } from "../pipeline/executeVisitor";
 import { Sprint } from "./sprint";
 
 export class ReviewSprint extends Sprint{
