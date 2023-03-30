@@ -3,12 +3,17 @@ import { ScrumMaster } from "../models/users/scrumMaster";
 import { Sprint } from "./sprint";
 
 export class ReleaseSprint extends Sprint{
+    
     resultsGood : boolean = false;
     cancelled : boolean = !this.resultsGood;
-        
+       
     successfullSprint(){
         this.resultsGood = true;
         this.cancelled = false;
+    }
+
+    public uploadSummary(): void {
+        throw new Error("Method has no consequence for a ReviewSprint");
     }
     
     public startPipeline(): void {

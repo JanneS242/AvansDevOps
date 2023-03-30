@@ -9,6 +9,7 @@ import { SMSNotification } from "../src/observer/SMSNotification";
 import { PdfReportBehaviour } from "../src/report/pdfReportBehaviour";
 import { Report } from "../src/report/report";
 import { ReviewSprint } from "../src/sprint/reviewSprint";
+import { SprintFactory } from "../src/sprint/sprintFactory";
 import { DoingState } from "../src/states/doingState";
 import { DoneState } from "../src/states/doneState";
 import { ReadyForTestingState } from "../src/states/readyForTestingState";
@@ -45,14 +46,18 @@ describe("BacklogItem and Activity tests", () => {
     });
     
     it("Create Sprint and BacklogItem and the state of the BacklogItem has to be ToDoState", () => {
-        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
         const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
 
         expect(item.currentState).toBeInstanceOf(ToDoState);
     });
 
     it("Create activity and add to backlogitem and the state of the activity has to be ToDoState", () => {
-        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
         const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
         const activity = new Activity("Beautiful activity", "When everything is done right");
 
@@ -63,7 +68,9 @@ describe("BacklogItem and Activity tests", () => {
     });
 
     it("Change the state of a backlogitem to DoingState", () => {
-        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
         const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
         item.changeState(new DoingState(item));
 
@@ -71,7 +78,9 @@ describe("BacklogItem and Activity tests", () => {
     });
         
     it("The state of the backlogitem can only be done, if the state of all activities are done - succesful way", () => {
-        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
         const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
         const activity = new Activity("Beautiful activity", "When everything is done right");
 
@@ -95,7 +104,9 @@ describe("BacklogItem and Activity tests", () => {
     });
 
     it("The state of the backlogitem can only be done, if the state of all activities are done - failed way", () => {
-        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
         const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
         const activity = new Activity("Beautiful activity", "When everything is done right");
 
@@ -118,7 +129,9 @@ describe("BacklogItem and Activity tests", () => {
     });
 
     it("The status of an item can never go back to doing", () =>{
-        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
         const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
 
         item.currentState.doing();
@@ -133,7 +146,9 @@ describe("BacklogItem and Activity tests", () => {
     });
 
     it("Tester receives an notification when the backlogitem is ready for testing", () =>{
-        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
         const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
 
         reviewSprint.addTeamMember(tester);
@@ -150,7 +165,9 @@ describe("BacklogItem and Activity tests", () => {
     });
 
     it("Change the state of a backlogitem from Tested to ToDo and the scrummaster gets a notification", () =>{
-        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
         const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
 
         scrumMaster.addNotificationType(new SMSNotification(scrumMaster.phoneNumber, new SMSAdapter()));
@@ -167,7 +184,9 @@ describe("BacklogItem and Activity tests", () => {
     });
 
     it("Change the state of a backlogitem from Tested to ReadyForTesting", () =>{
-        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
         const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
 
         item.currentState.doing();

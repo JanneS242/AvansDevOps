@@ -37,6 +37,9 @@ export abstract class Sprint {
     }
 
     public abstract startPipeline(): void;
+    public abstract successfullSprint() : void;
+    public abstract uploadSummary() : void;
+
 
     public addTeamMember(member : User){
         if(!this.closedForChanges){

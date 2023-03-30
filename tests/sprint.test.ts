@@ -10,6 +10,7 @@ import { PdfReportBehaviour } from "../src/report/pdfReportBehaviour";
 import { Report } from "../src/report/report";
 import { ReleaseSprint } from "../src/sprint/releaseSprint";
 import { ReviewSprint } from "../src/sprint/reviewSprint";
+import { SprintFactory } from "../src/sprint/sprintFactory";
 
 describe("BacklogItem and Activity tests", () => {
     let productOwner: ProductOwner;
@@ -47,7 +48,8 @@ describe("BacklogItem and Activity tests", () => {
     });
 
     it("Create reviewsprint and start pipeline - summary is uploaded", () => {
-        const reviewSprint1 = new ReviewSprint(1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const reviewSprint1 = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
 
         reviewSprint1.setPipeline(new Pipeline("Sprint 1 pipeline"));
         reviewSprint1.pipeline?.addJob(new Folder("Git"));
@@ -59,7 +61,8 @@ describe("BacklogItem and Activity tests", () => {
     });
 
     it("Create reviewsprint and start pipeline - summary is NOT uploaded", () => {
-        const reviewSprint2 = new ReviewSprint(1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const reviewSprint2 = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
 
         reviewSprint2.setPipeline(new Pipeline("Sprint 1 pipeline"));
         reviewSprint2.pipeline?.addJob(new Folder("Git"));
@@ -70,7 +73,8 @@ describe("BacklogItem and Activity tests", () => {
     });
 
     it("Create reviewsprint and start pipeline - end date has expired", () => {
-        const reviewSprint3 = new ReviewSprint(1, 'sprint1', new Date(), new Date(2023,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const reviewSprint3 = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2022,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
 
         reviewSprint3.setPipeline(new Pipeline("Sprint 1 pipeline"));
         reviewSprint3.pipeline?.addJob(new Folder("Git"));
@@ -82,8 +86,9 @@ describe("BacklogItem and Activity tests", () => {
     });
 
     it("Create release sprint and start pipeline - succesful", () => {
-        const releaseSprint = new ReleaseSprint(1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()));
-
+        const sprintFactory = new SprintFactory();
+        const releaseSprint = sprintFactory.createSprint('release', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
         releaseSprint.setPipeline(new Pipeline("Sprint 1 pipeline"));
         releaseSprint.pipeline?.addJob(new Folder("Git"));
         releaseSprint.successfullSprint();
@@ -94,7 +99,8 @@ describe("BacklogItem and Activity tests", () => {
     });
 
     it("Create release sprint and start pipeline - cancelled", () => {
-        const releaseSprint = new ReleaseSprint(1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const releaseSprint = sprintFactory.createSprint('release', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
 
         releaseSprint.scrumMaster.addNotificationType(new SMSNotification(releaseSprint.scrumMaster.phoneNumber, new SMSAdapter()));
 

@@ -2,10 +2,15 @@ import { ExecuteVisitor } from "../pipeline/executeVisitor";
 import { Sprint } from "./sprint";
 
 export class ReviewSprint extends Sprint{
+    
     summaryUploaded: boolean = false;
 
     public uploadSummary(){
         this.summaryUploaded = true;
+    }
+
+    public successfullSprint(): void {
+        throw new Error("Method has no consequence for a ReviewSprint");
     }
 
     isDateBeforeToday(date : Date) {

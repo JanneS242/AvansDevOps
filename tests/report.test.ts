@@ -8,6 +8,7 @@ import { PngReportBehaviour } from "../src/report/pngReportBehaviour";
 import { Report } from "../src/report/report";
 import { ReportComponent } from "../src/report/reportComponent";
 import { ReviewSprint } from "../src/sprint/reviewSprint";
+import { SprintFactory } from "../src/sprint/sprintFactory";
 
 describe("Report tests", () =>{
     let productOwner: ProductOwner;
@@ -36,7 +37,8 @@ describe("Report tests", () =>{
     });
     
     it("Generate a report from a sprint - pdf", () => {
-        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PdfReportBehaviour()))
 
         reviewSprint.report.setEffortPoints("203");
         reviewSprint.report.setHeader("logo", "project X", "Cool business", 1, new Date());
@@ -49,7 +51,8 @@ describe("Report tests", () =>{
     });
 
     it("Generate a report from a sprint - png", () => {
-        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PngReportBehaviour()));
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PngReportBehaviour()))
 
         reviewSprint.report.setEffortPoints("203");
         reviewSprint.report.setHeader("logo", "project X", "Cool business", 1, new Date());
