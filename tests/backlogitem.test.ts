@@ -1,5 +1,6 @@
 import { Activity } from "../src/models/activity";
 import { BacklogItem } from "../src/models/backlogItem";
+import { Project } from "../src/models/project";
 import { Developer } from "../src/models/users/developer";
 import { ScrumMaster } from "../src/models/users/scrumMaster";
 import { Tester } from "../src/models/users/tester";
@@ -189,6 +190,81 @@ describe("BacklogItem and Activity tests", () => {
         item.currentState.readyForTesting();
 
         expect(item.currentState).toBeInstanceOf(ReadyForTestingState);
+    });
+
+    it("Add sprint to project", () =>{
+        const project = new Project('Project name');
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
+        project.addSprint(reviewSprint);
+
+        expect(project.sprints).toContain(reviewSprint);
+    });
+
+    it("Change the state of a backlogitem from Done to ToDo", () =>{
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
+        const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
+
+        item.currentState.doing();
+        item.currentState.readyForTesting();
+        item.currentState.testing();
+        item.currentState.tested();
+        item.currentState.done();
+        item.currentState.todo();
+
+        expect(item.currentState).toBeInstanceOf(ToDoState);
+    });
+
+    it("The state can never go back to Doing", () =>{
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
+        const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
+
+        item.currentState.doing();
+        item.currentState.readyForTesting();
+        item.currentState.testing();
+        item.currentState.tested();
+
+        expect(() => {
+            item.currentState.doing()
+          }).toThrow(Error)
+
+        expect(item.currentState).toBeInstanceOf(TestedState);
+    });
+
+    it("Can't skip a step in the states - ReadyForTesting to Tested", () =>{
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
+        const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
+
+        item.currentState.doing();
+        item.currentState.readyForTesting();
+
+
+        expect(() => {
+            item.currentState.tested()
+          }).toThrow(Error)
+
+        expect(item.currentState).toBeInstanceOf(ReadyForTestingState);
+    });
+
+    it("Can't skip a step in the states - ToDo to Done", () =>{
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
+        const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
+
+
+        expect(() => {
+            item.currentState.tested()
+          }).toThrow(Error)
+
+        expect(item.currentState).toBeInstanceOf(ToDoState);
     });
 })
     
