@@ -16,7 +16,7 @@ describe("BacklogItem and Activity tests", () => {
     });
 
     beforeEach(() => {
-        scrumMaster = new ScrumMaster("Janne", "Sterk", new Date(24-2-2001), "j.sterk@avans.nl", "066223432");;
+        scrumMaster = new ScrumMaster("Janne", "Sterk", new Date(2001,1,1), "j.sterk@avans.nl", "066223432");;
     });
 
     afterEach(() =>{

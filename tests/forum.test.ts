@@ -24,8 +24,8 @@ describe("Forum tests", () => {
       
 
     beforeEach(() => {
-        scrumMaster = new ScrumMaster("Janne", "Sterk", new Date(24-2-2001), "j.sterk@avans.nl", "066223432");;
-        developer = new Developer("Janne", "Sterk", new Date(24-2-2001), "j.sterk@avans.nl", "066223432");;
+        scrumMaster = new ScrumMaster("Janne", "Sterk", new Date(2001,1,1), "j.sterk@avans.nl", "066223432");;
+        developer = new Developer("Janne", "Sterk", new Date(2001,1,1), "j.sterk@avans.nl", "066223432");;
 
     });
 
@@ -36,7 +36,7 @@ describe("Forum tests", () => {
 
 
     it("Make a thread for a backlogitem", () =>{
-        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()));
         const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
 
         const forum = new Forum(item);
@@ -45,7 +45,7 @@ describe("Forum tests", () => {
     });
 
     it("Add a message to a thread", () => {
-        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()));
         const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
 
         const message = new Message("I got an edit", "Something is not right", item.developer);
@@ -57,7 +57,7 @@ describe("Forum tests", () => {
     });
 
     it("Get a notification when there is a new message added to the thread", () => {
-        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(1-1-2024), scrumMaster, new Report(1, new PdfReportBehaviour()));
+        const reviewSprint = new ReviewSprint(1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()));
         const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
 
         const message = new Message("I got an edit", "Something is not right", item.developer);
