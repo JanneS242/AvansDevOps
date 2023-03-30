@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1680192251269" clover="3.2.0">
-  <project timestamp="1680192251269" name="All files">
-    <metrics statements="296" coveredstatements="232" conditionals="54" coveredconditionals="38" methods="127" coveredmethods="79" elements="477" coveredelements="349" complexity="0" loc="296" ncloc="296" packages="8" files="33" classes="33"/>
+<coverage generated="1680193520145" clover="3.2.0">
+  <project timestamp="1680193520145" name="All files">
+    <metrics statements="302" coveredstatements="237" conditionals="54" coveredconditionals="38" methods="130" coveredmethods="81" elements="486" coveredelements="356" complexity="0" loc="302" ncloc="302" packages="8" files="35" classes="35"/>
     <package name="models">
       <metrics statements="42" coveredstatements="40" conditionals="3" coveredconditionals="1" methods="15" coveredmethods="15"/>
       <file name="activity.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\models\activity.ts">
@@ -18,19 +18,19 @@
         <line num="2" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
-        <line num="19" count="17" type="stmt"/>
-        <line num="20" count="17" type="stmt"/>
-        <line num="21" count="17" type="stmt"/>
-        <line num="22" count="17" type="stmt"/>
-        <line num="23" count="17" type="stmt"/>
-        <line num="24" count="17" type="stmt"/>
-        <line num="29" count="40" type="stmt"/>
+        <line num="19" count="16" type="stmt"/>
+        <line num="20" count="16" type="stmt"/>
+        <line num="21" count="16" type="stmt"/>
+        <line num="22" count="16" type="stmt"/>
+        <line num="23" count="16" type="stmt"/>
+        <line num="24" count="16" type="stmt"/>
+        <line num="29" count="36" type="stmt"/>
         <line num="33" count="3" type="stmt"/>
-        <line num="38" count="3" type="stmt"/>
-        <line num="40" count="3" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
         <line num="41" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="42" count="0" type="stmt"/>
-        <line num="46" count="3" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
       </file>
       <file name="forum.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\models\forum.ts">
         <metrics statements="12" coveredstatements="11" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="5"/>
@@ -87,33 +87,45 @@
       <file name="user.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\models\users\user.ts">
         <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
         <line num="3" count="4" type="stmt"/>
-        <line num="13" count="58" type="stmt"/>
-        <line num="14" count="58" type="stmt"/>
-        <line num="15" count="58" type="stmt"/>
-        <line num="16" count="58" type="stmt"/>
-        <line num="17" count="58" type="stmt"/>
-        <line num="19" count="58" type="stmt"/>
+        <line num="13" count="55" type="stmt"/>
+        <line num="14" count="55" type="stmt"/>
+        <line num="15" count="55" type="stmt"/>
+        <line num="16" count="55" type="stmt"/>
+        <line num="17" count="55" type="stmt"/>
+        <line num="19" count="55" type="stmt"/>
         <line num="23" count="4" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
       </file>
     </package>
     <package name="observer">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <file name="SMSNotification.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\observer\SMSNotification.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="4" count="3" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
-        <line num="10" count="4" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+      </file>
+      <file name="emailNotification.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\observer\emailNotification.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
       </file>
     </package>
     <package name="observer.adapter">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="SMSAdapter.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\observer\adapter\SMSAdapter.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+      </file>
+      <file name="emailAdapter.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\observer\adapter\emailAdapter.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
       </file>
     </package>
     <package name="pipeline">
@@ -230,9 +242,9 @@
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
         <line num="2" count="4" type="stmt"/>
         <line num="4" count="4" type="stmt"/>
-        <line num="8" count="25" type="stmt"/>
-        <line num="9" count="25" type="stmt"/>
-        <line num="10" count="25" type="stmt"/>
+        <line num="8" count="24" type="stmt"/>
+        <line num="9" count="24" type="stmt"/>
+        <line num="10" count="24" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="18" count="2" type="stmt"/>
         <line num="22" count="2" type="stmt"/>
@@ -283,7 +295,7 @@
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
         <line num="4" count="4" type="stmt"/>
-        <line num="6" count="23" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
         <line num="17" count="3" type="stmt"/>
@@ -300,15 +312,15 @@
       <file name="sprint.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\sprint\sprint.ts">
         <metrics statements="18" coveredstatements="16" conditionals="3" coveredconditionals="2" methods="5" coveredmethods="4"/>
         <line num="6" count="4" type="stmt"/>
-        <line num="12" count="25" type="stmt"/>
-        <line num="13" count="25" type="stmt"/>
-        <line num="27" count="25" type="stmt"/>
-        <line num="28" count="25" type="stmt"/>
-        <line num="29" count="25" type="stmt"/>
-        <line num="30" count="25" type="stmt"/>
-        <line num="32" count="25" type="stmt"/>
-        <line num="33" count="25" type="stmt"/>
-        <line num="35" count="25" type="stmt"/>
+        <line num="12" count="24" type="stmt"/>
+        <line num="13" count="24" type="stmt"/>
+        <line num="27" count="24" type="stmt"/>
+        <line num="28" count="24" type="stmt"/>
+        <line num="29" count="24" type="stmt"/>
+        <line num="30" count="24" type="stmt"/>
+        <line num="32" count="24" type="stmt"/>
+        <line num="33" count="24" type="stmt"/>
+        <line num="35" count="24" type="stmt"/>
         <line num="45" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="46" count="2" type="stmt"/>
         <line num="52" count="0" type="cond" truecount="0" falsecount="1"/>
@@ -323,29 +335,29 @@
         <line num="3" count="3" type="stmt"/>
         <line num="4" count="3" type="stmt"/>
         <line num="6" count="3" type="stmt"/>
-        <line num="8" count="22" type="cond" truecount="2" falsecount="1"/>
-        <line num="10" count="20" type="stmt"/>
+        <line num="8" count="21" type="cond" truecount="2" falsecount="1"/>
+        <line num="10" count="19" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
       </file>
     </package>
     <package name="states">
-      <metrics statements="71" coveredstatements="46" conditionals="7" coveredconditionals="6" methods="45" coveredmethods="21"/>
+      <metrics statements="71" coveredstatements="45" conditionals="7" coveredconditionals="6" methods="45" coveredmethods="20"/>
       <file name="doingState.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\states\doingState.ts">
         <metrics statements="16" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="4"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="11" count="13" type="stmt"/>
+        <line num="11" count="12" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
-        <line num="22" count="11" type="cond" truecount="1" falsecount="0"/>
-        <line num="23" count="9" type="stmt"/>
+        <line num="22" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="23" count="8" type="stmt"/>
         <line num="24" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
-        <line num="32" count="11" type="stmt"/>
+        <line num="32" count="10" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
@@ -366,55 +378,55 @@
         <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="3"/>
         <line num="4" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="10" count="13" type="stmt"/>
+        <line num="10" count="12" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
-        <line num="23" count="9" type="stmt"/>
+        <line num="23" count="8" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
       </file>
       <file name="testedState.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\states\testedState.ts">
-        <metrics statements="19" coveredstatements="17" conditionals="5" coveredconditionals="4" methods="8" coveredmethods="7"/>
+        <metrics statements="19" coveredstatements="16" conditionals="5" coveredconditionals="4" methods="8" coveredmethods="6"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
-        <line num="12" count="8" type="stmt"/>
+        <line num="12" count="7" type="stmt"/>
         <line num="17" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="18" count="2" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="22" count="2" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="37" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="38" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="37" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="39" count="0" type="stmt"/>
-        <line num="41" count="3" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
       </file>
       <file name="testingState.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\states\testingState.ts">
         <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="3"/>
         <line num="4" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="10" count="10" type="stmt"/>
+        <line num="10" count="9" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
-        <line num="26" count="7" type="stmt"/>
+        <line num="26" count="6" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
       </file>
       <file name="toDoState.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\states\toDoState.ts">
         <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="3"/>
         <line num="3" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="10" count="22" type="stmt"/>
+        <line num="10" count="21" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
-        <line num="17" count="11" type="stmt"/>
+        <line num="17" count="10" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="26" count="1" type="stmt"/>

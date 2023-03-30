@@ -4,7 +4,9 @@ import { Project } from "../src/models/project";
 import { Developer } from "../src/models/users/developer";
 import { ScrumMaster } from "../src/models/users/scrumMaster";
 import { Tester } from "../src/models/users/tester";
+import { EmailAdapter } from "../src/observer/adapter/emailAdapter";
 import { SMSAdapter } from "../src/observer/adapter/SMSAdapter";
+import { EmailNotification } from "../src/observer/emailNotification";
 import { SMSNotification } from "../src/observer/SMSNotification";
 import { PdfReportBehaviour } from "../src/report/pdfReportBehaviour";
 import { Report } from "../src/report/report";
@@ -37,6 +39,11 @@ describe("BacklogItem and Activity tests", () => {
 
         developer = new Developer("Janne", "Sterk", new Date(2001,1,1), "j.sterk@avans.nl", "066223432");;
 
+    });
+
+    afterEach(() =>{
+        jest.spyOn(global.console, 'log').mockClear();
+        jest.spyOn(global.console, 'error').mockClear();
     });
     
     it("Create Sprint and BacklogItem and the state of the BacklogItem has to be ToDoState", () => {
@@ -164,7 +171,7 @@ describe("BacklogItem and Activity tests", () => {
         
         const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
 
-        scrumMaster.addNotificationType(new SMSNotification(scrumMaster.phoneNumber, new SMSAdapter()));
+        scrumMaster.addNotificationType(new EmailNotification(scrumMaster.email, new EmailAdapter()));
 
         item.currentState.doing();
         item.currentState.readyForTesting();
@@ -173,7 +180,7 @@ describe("BacklogItem and Activity tests", () => {
         item.currentState.todo();
 
         expect(scrumMaster.notificationTypes.every(n => n.notify)).toBeTruthy();
-        expect(console.log).toBeCalledWith(`Send SMS to the following number: ${scrumMaster.phoneNumber}`);
+        expect(console.log).toBeCalledWith(`Send email to ${scrumMaster.email}`);
         expect(item.currentState).toBeInstanceOf(ToDoState);
     });
 
