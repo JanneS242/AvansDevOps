@@ -13,7 +13,7 @@ export class ReviewSprint extends Sprint{
         throw new Error("Method has no consequence for a ReviewSprint");
     }
 
-    isDateBeforeToday(date : Date) {
+    private isDateBeforeToday(date : Date) {
         return new Date(date.toDateString()) < new Date(new Date().toDateString());
     }
       

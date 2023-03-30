@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1680185403551" clover="3.2.0">
-  <project timestamp="1680185403551" name="All files">
+<coverage generated="1680187727940" clover="3.2.0">
+  <project timestamp="1680187727941" name="All files">
     <metrics statements="298" coveredstatements="230" conditionals="54" coveredconditionals="38" methods="128" coveredmethods="76" elements="480" coveredelements="344" complexity="0" loc="298" ncloc="298" packages="8" files="34" classes="34"/>
     <package name="models">
       <metrics statements="38" coveredstatements="36" conditionals="3" coveredconditionals="1" methods="13" coveredmethods="13"/>
@@ -59,13 +59,13 @@
       <metrics statements="18" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
       <file name="developer.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\models\users\developer.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
       </file>
       <file name="productOwner.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\models\users\productOwner.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
       </file>
       <file name="scrumMaster.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\models\users\scrumMaster.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -74,18 +74,18 @@
       </file>
       <file name="tester.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\models\users\tester.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
       </file>
       <file name="user.ts" path="C:\Avans\Jaar3\Periode3\SOA3\AvansDevOps\src\models\users\user.ts">
         <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
         <line num="3" count="4" type="stmt"/>
-        <line num="13" count="76" type="stmt"/>
-        <line num="14" count="76" type="stmt"/>
-        <line num="15" count="76" type="stmt"/>
-        <line num="16" count="76" type="stmt"/>
-        <line num="17" count="76" type="stmt"/>
-        <line num="19" count="76" type="stmt"/>
+        <line num="13" count="40" type="stmt"/>
+        <line num="14" count="40" type="stmt"/>
+        <line num="15" count="40" type="stmt"/>
+        <line num="16" count="40" type="stmt"/>
+        <line num="17" count="40" type="stmt"/>
+        <line num="19" count="40" type="stmt"/>
         <line num="23" count="4" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
