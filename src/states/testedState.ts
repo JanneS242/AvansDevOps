@@ -38,7 +38,7 @@ export class TestedState implements IState{
             if(this.item.checkStatesOfActivities()){
                 this.item.changeState(new DoneState(this.item));
             } else{
-                console.error("Not all acitivties are done");
+                console.error("Not all activities are done");
             }
         } else{
             this.item.changeState(new DoneState(this.item));

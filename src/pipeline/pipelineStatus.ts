@@ -1,4 +1,4 @@
-enum PipelineStatus{
+export enum PipelineStatus{
     NotStarted, 
     InProgress, 
     Succeeded,

@@ -8,6 +8,7 @@ export class ReleaseSprint extends Sprint{
         
     successfullSprint(){
         this.resultsGood = true;
+        this.cancelled = false;
     }
     
     public startPipeline(): void {

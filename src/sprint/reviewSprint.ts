@@ -7,9 +7,13 @@ export class ReviewSprint extends Sprint{
     public uploadSummary(){
         this.summaryUploaded = true;
     }
-    
+
+    isDateBeforeToday(date : Date) {
+        return new Date(date.toDateString()) < new Date(new Date().toDateString());
+    }
+      
     public startPipeline(): void {
-        if(this.endDate < new Date()){
+        if(this.isDateBeforeToday(this.endDate)){
             this.finished = true;
             console.log("End date has already expired");
         } else{
@@ -18,7 +22,7 @@ export class ReviewSprint extends Sprint{
                 
                 if(this.pipeline != null){
                     const executeVisitor = new ExecuteVisitor();
-                    this.pipeline.accept(executeVisitor);
+                    this.pipeline.accept(executeVisitor);            
                 }
             } else {
                 console.log("Cannot start pipeline because there is no summaryUploaded")

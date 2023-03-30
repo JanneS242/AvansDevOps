@@ -11,6 +11,7 @@ export abstract class Sprint {
     public pipeline? : Pipeline;
     public finished : boolean = false;
     public closedForChanges : boolean = false;
+    public report : Report;
     
     public scrumMaster : ScrumMaster;
     public teamMembers : Array<User>;
@@ -20,8 +21,8 @@ export abstract class Sprint {
             title : string, 
             startDate : Date, 
             endDate : Date, 
-            public report : Report,
-            scrumMaster : ScrumMaster
+            scrumMaster : ScrumMaster,
+            report : Report
         ){
             this.sprintNr = sprintNr;
             this.title = title;
@@ -29,6 +30,7 @@ export abstract class Sprint {
             this.endDate = endDate;
 
             this.scrumMaster = scrumMaster;
+            this.report = report;
 
             this.teamMembers = new Array<User>;
             

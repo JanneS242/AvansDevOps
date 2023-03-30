@@ -5,7 +5,7 @@ export class Report{
     sprintNr : number;
     reportGenerator : ReportBehaviour;
     
-    constructor(sprintNr : number, generator : ReportBehaviour, public header : ReportComponent, public footer : ReportComponent, public teamComposition : string, public burndownChart : string, public effortPoints : string){
+    constructor(sprintNr : number, generator : ReportBehaviour, public header? : ReportComponent, public footer? : ReportComponent, public teamComposition? : string, public burndownChart? : string, public effortPoints? : string){
         this.sprintNr = sprintNr;
         this.reportGenerator = generator;
     }

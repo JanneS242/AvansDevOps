@@ -2,6 +2,7 @@ import { Command } from "./command";
 import { CompositeComponent } from "./compositeComponent";
 import { Folder } from "./folder";
 import { Pipeline } from "./pipeline";
+import { PipelineStatus } from "./pipelineStatus";
 import { Visitor } from "./visitor";
 
 export class ExecuteVisitor extends Visitor {
