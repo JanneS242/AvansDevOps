@@ -3,8 +3,8 @@ import { Forum } from "../src/models/forum";
 import { Message } from "../src/models/message";
 import { Developer } from "../src/models/users/developer";
 import { ScrumMaster } from "../src/models/users/scrumMaster";
-import { EmailAdapter } from "../src/observer/adapter/emailAdapter";
-import { EmailNotification } from "../src/observer/emailNotification";
+import { SMSAdapter } from "../src/observer/adapter/SMSAdapter";
+import { SMSNotification } from "../src/observer/SMSNotification";
 import { PdfReportBehaviour } from "../src/report/pdfReportBehaviour";
 import { Report } from "../src/report/report";
 import { ReviewSprint } from "../src/sprint/reviewSprint";
@@ -62,12 +62,12 @@ describe("Forum tests", () => {
 
         const message = new Message("I got an edit", "Something is not right", item.developer);
 
-        developer.addNotificationType(new EmailNotification(developer.email, new EmailAdapter()));
+        developer.addNotificationType(new SMSNotification(developer.phoneNumber, new SMSAdapter()));
 
         const forum = new Forum(item);
         forum.addSubscriber(developer);
         forum.addMessage(message);
 
-        expect(console.log).toBeCalledWith(`Send email to ${developer.email}`);
+        expect(console.log).toBeCalledWith(`Send SMS to the following number: ${developer.phoneNumber}`);
     });
 });
