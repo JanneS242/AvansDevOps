@@ -4,8 +4,8 @@ import { Sprint } from "./sprint";
 
 export class ReleaseSprint extends Sprint{
     
-    resultsGood : boolean = false;
-    cancelled : boolean = !this.resultsGood;
+    private resultsGood : boolean = false;
+    private cancelled : boolean = !this.resultsGood;
        
     successfullSprint(){
         this.resultsGood = true;

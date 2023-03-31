@@ -2,8 +2,8 @@ import { SMSAdapter } from "./adapter/SMSAdapter";
 import { INotification } from "./INotification";
 
 export class SMSNotification implements INotification{
-    phoneNumber: string;
-    smsAdapter : SMSAdapter;
+    private phoneNumber: string;
+    private smsAdapter : SMSAdapter;
 
     constructor(phoneNumber: string, smsAdapter : SMSAdapter){
         this.phoneNumber = phoneNumber;

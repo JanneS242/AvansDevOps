@@ -1,9 +1,9 @@
 import { User } from "./users/user";
 
 export class Message{
-    public title : string;
-    public content : string;
-    public author : User;
+    private title : string;
+    private content : string;
+    private author : User;
 
     constructor(title : string, content : string, author : User){
         this.title = title;

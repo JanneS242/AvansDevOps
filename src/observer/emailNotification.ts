@@ -2,8 +2,8 @@ import { EmailAdapter } from "./adapter/EmailAdapter";
 import { INotification } from "./INotification";
 
 export class EmailNotification implements INotification{
-    email: string;
-    emailAdapter : EmailAdapter;
+    private email: string;
+    private emailAdapter : EmailAdapter;
 
     constructor(email : string, emailAdapter : EmailAdapter){
         this.email = email;

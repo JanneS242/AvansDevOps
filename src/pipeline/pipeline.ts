@@ -5,25 +5,25 @@ import { Visitor } from "./visitor";
 import { PipelineStatus } from "./pipelineStatus";
 
 export class Pipeline{
-    name : string;
-    jobs : Array<CompositeComponent>;
-    pipelineStatus : PipelineStatus = PipelineStatus.NotStarted
-    sprint? : Sprint;
+    private name : string;
+    public jobs : Array<CompositeComponent>;
+    public pipelineStatus : PipelineStatus = PipelineStatus.NotStarted
+    public sprint? : Sprint;
 
     constructor(name : string){
         this.name = name;
         this.jobs = new Array<CompositeComponent>;
     }
 
-    addJob(job : CompositeComponent){
+    public addJob(job : CompositeComponent){
         this.jobs.push(job);
     }
 
-    accept(visitor : Visitor){
+    public accept(visitor : Visitor){
         visitor.visitPipeline(this);
     }
 
-    notifyScrumMasterWhenFailed(){
+    public notifyScrumMasterWhenFailed(){
         if(this.sprint != null){
             if(this.pipelineStatus == PipelineStatus.Failed){
                 this.sprint.scrumMaster.notificationTypes.forEach(type => {

@@ -3,7 +3,7 @@ import { Sprint } from "./sprint";
 
 export class ReviewSprint extends Sprint{
     
-    summaryUploaded: boolean = false;
+    private summaryUploaded: boolean = false;
 
     public uploadSummary(){
         this.summaryUploaded = true;

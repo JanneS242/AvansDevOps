@@ -1,5 +1,5 @@
 export class SMSAdapter{
-    sendSMS(phoneNumber : string){
+    public sendSMS(phoneNumber : string){
         console.log(`Send SMS to the following number: ${phoneNumber}`);
     }
 }

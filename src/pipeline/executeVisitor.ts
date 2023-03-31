@@ -7,9 +7,9 @@ import { Visitor } from "./visitor";
 
 export class ExecuteVisitor extends Visitor {
     
-    jobCount : number = 0;
+    private jobCount : number = 0;
     
-    incrementJobCount(){ this.jobCount++}
+    private incrementJobCount(){ this.jobCount++}
 
     public visitPipeline(pipeline: Pipeline) {
         pipeline.pipelineStatus = PipelineStatus.InProgress;

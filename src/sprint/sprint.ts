@@ -4,9 +4,9 @@ import { User } from "../models/users/user";
 import { Pipeline } from "../pipeline/pipeline";
 
 export abstract class Sprint {
-    public sprintNr : number;
-    public title: string;
-    public startDate: Date;
+    private sprintNr : number;
+    private title: string;
+    private startDate: Date;
     public endDate: Date;
     public pipeline? : Pipeline;
     public finished : boolean = false;

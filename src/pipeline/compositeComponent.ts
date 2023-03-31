@@ -2,8 +2,8 @@ import { Component } from "./component";
 import { Visitor } from "./visitor";
 
 export abstract class CompositeComponent extends Component{
-    components : Array<Component>
-    title : string;
+    public components : Array<Component>
+    private title : string;
 
     constructor(title : string){
         super();

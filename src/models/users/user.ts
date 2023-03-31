@@ -1,9 +1,9 @@
 import { INotification } from "../../observer/INotification";
 
 export abstract class User{
-    public firstName : string;
-    public lastName : string;
-    public dateOfBirth: Date;
+    private firstName : string;
+    private lastName : string;
+    private dateOfBirth: Date;
     public email : string;
     public phoneNumber : string;
 

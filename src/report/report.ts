@@ -2,8 +2,8 @@ import { ReportBehaviour } from "./reportBehaviour";
 import { ReportComponent } from "./reportComponent";
 
 export class Report{
-    sprintNr : number;
-    reportGenerator : ReportBehaviour;
+    public sprintNr : number;
+    private reportGenerator : ReportBehaviour;
     
     constructor(sprintNr : number, generator : ReportBehaviour, public header? : ReportComponent, public footer? : ReportComponent, public teamComposition? : string, public burndownChart? : string, public effortPoints? : string){
         this.sprintNr = sprintNr;
