@@ -36,7 +36,6 @@ export class BacklogItem {
     public checkStatesOfActivitiesAreDone() : boolean{
         //check if all activities are done -> false if NOT
         let notDoneActivities : Array<Activity> = new Array<Activity>;
-        // let allDone : boolean = false;
         
         if(this.activities.length !== 0){
             this.activities.forEach(activity => {
