@@ -7,7 +7,7 @@ export class ReleaseSprint extends Sprint{
     private resultsGood : boolean = false;
     private cancelled : boolean = !this.resultsGood;
        
-    successfullSprint(){
+    public successfullSprint(){
         this.resultsGood = true;
         this.cancelled = false;
     }

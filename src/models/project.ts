@@ -9,7 +9,7 @@ export class Project{
         this.sprints = new Array<Sprint>;
     }
 
-    addSprint(s : Sprint){
+    public addSprint(s : Sprint){
         this.sprints.push(s);
     }
 }

@@ -10,7 +10,7 @@ export class EmailNotification implements INotification{
         this.emailAdapter = emailAdapter;
     }
 
-    notify(){
+    public notify(){
         this.emailAdapter.sendEmail(this.email);
     }
     

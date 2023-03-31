@@ -14,11 +14,11 @@ export class Forum{
         this.subscribers = new Array<User>
     }
 
-    addSubscriber(user : User){
+    public addSubscriber(user : User){
         this.subscribers.push(user);
     }
 
-    addMessage(m : Message){
+    public addMessage(m : Message){
         if(this.issue.currentState instanceof DoneState){
             console.log("This issue is done. There can be no reaction anymore");
         } else {
