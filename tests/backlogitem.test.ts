@@ -4,7 +4,7 @@ import { Project } from "../src/models/project";
 import { Developer } from "../src/models/users/developer";
 import { ScrumMaster } from "../src/models/users/scrumMaster";
 import { Tester } from "../src/models/users/tester";
-import { EmailAdapter } from "../src/observer/adapter/emailAdapter";
+import { EmailAdapter } from "../src/observer/adapter/EmailAdapter";
 import { SMSAdapter } from "../src/observer/adapter/SMSAdapter";
 import { EmailNotification } from "../src/observer/emailNotification";
 import { SMSNotification } from "../src/observer/SMSNotification";

@@ -1,4 +1,4 @@
-import { EmailAdapter } from "./adapter/emailAdapter";
+import { EmailAdapter } from "./adapter/EmailAdapter";
 import { INotification } from "./INotification";
 
 export class EmailNotification implements INotification{
