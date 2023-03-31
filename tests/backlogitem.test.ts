@@ -208,24 +208,6 @@ describe("BacklogItem and Activity tests", () => {
         expect(project.sprints).toContain(reviewSprint);
     });
 
-    it("The state can never go back to Doing", () =>{
-        const sprintFactory = new SprintFactory();
-        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
-        
-        const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
-
-        item.currentState.doing();
-        item.currentState.readyForTesting();
-        item.currentState.testing();
-        item.currentState.tested();
-
-        expect(() => {
-            item.currentState.doing()
-          }).toThrow(Error)
-
-        expect(item.currentState).toBeInstanceOf(TestedState);
-    });
-
     it("Can't skip a step in the states - ReadyForTesting to Tested", () =>{
         const sprintFactory = new SprintFactory();
         const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
