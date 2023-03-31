@@ -1,6 +1,7 @@
 import { ScrumMaster } from "../src/models/users/scrumMaster";
 import { SMSAdapter } from "../src/observer/adapter/SMSAdapter";
 import { SMSNotification } from "../src/observer/SMSNotification";
+import { Command } from "../src/pipeline/command";
 import { Folder } from "../src/pipeline/folder";
 import { Pipeline } from "../src/pipeline/pipeline";
 import { PdfReportBehaviour } from "../src/report/pdfReportBehaviour";
@@ -28,8 +29,12 @@ describe("BacklogItem and Activity tests", () => {
         const sprintFactory = new SprintFactory();
         const reviewSprint1 = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
 
+        const folder = new Folder("Git");
+        const command = new Command("git clone ...");
+        
         reviewSprint1.setPipeline(new Pipeline("Sprint 1 pipeline"));
-        reviewSprint1.pipeline?.addJob(new Folder("Git"));
+        reviewSprint1.pipeline?.addJob(folder);
+        folder.addComponent(command);
         reviewSprint1.uploadSummary();
         reviewSprint1.startPipeline();
 
