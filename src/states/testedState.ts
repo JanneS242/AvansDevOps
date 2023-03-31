@@ -35,12 +35,12 @@ export class TestedState implements IState{
     }
     done(): void {
         if(this.item instanceof BacklogItem ){
-            if(this.item.checkStatesOfActivities()){
+            if(this.item.checkStatesOfActivitiesAreDone()){
                 this.item.changeState(new DoneState(this.item));
             } else{
                 console.error("Not all activities are done");
             }
-        } else{
+        } else if(this.item instanceof Activity){
             this.item.changeState(new DoneState(this.item));
         }
         

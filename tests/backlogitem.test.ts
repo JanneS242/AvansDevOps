@@ -112,6 +112,7 @@ describe("BacklogItem and Activity tests", () => {
         const activity = new Activity("Beautiful activity", "When everything is done right");
 
         item.addActivityToList(activity);
+        
         activity.currentState.doing();
         activity.currentState.readyForTesting();
         activity.currentState.testing();
@@ -209,22 +210,6 @@ describe("BacklogItem and Activity tests", () => {
         expect(project.sprints).toContain(reviewSprint);
     });
 
-    it("Change the state of a backlogitem from Done to ToDo", () =>{
-        const sprintFactory = new SprintFactory();
-        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
-        
-        const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
-
-        item.currentState.doing();
-        item.currentState.readyForTesting();
-        item.currentState.testing();
-        item.currentState.tested();
-        item.currentState.done();
-        item.currentState.todo();
-
-        expect(item.currentState).toBeInstanceOf(ToDoState);
-    });
-
     it("The state can never go back to Doing", () =>{
         const sprintFactory = new SprintFactory();
         const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
@@ -272,6 +257,41 @@ describe("BacklogItem and Activity tests", () => {
           }).toThrow(Error)
 
         expect(item.currentState).toBeInstanceOf(ToDoState);
+    });
+
+    it("Change the state of a backlogitem from Done to ToDo", () =>{
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
+        const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
+
+        item.currentState.doing();
+        item.currentState.readyForTesting();
+        item.currentState.testing();
+        item.currentState.tested();
+        item.currentState.done();
+        item.currentState.todo();
+
+        expect(item.currentState).toBeInstanceOf(ToDoState);
+    });
+
+    it("Change the state of a backlogitem from Done to Testing - get error", () =>{
+        const sprintFactory = new SprintFactory();
+        const reviewSprint = sprintFactory.createSprint('review', 1, 'sprint1', new Date(), new Date(2024,1,1), scrumMaster, new Report(1, new PdfReportBehaviour()))
+        
+        const item = new BacklogItem("Difficult item", "When everything is in place", developer, reviewSprint);
+
+        item.currentState.doing();
+        item.currentState.readyForTesting();
+        item.currentState.testing();
+        item.currentState.tested();
+        item.currentState.done();
+
+        expect(() => {
+            item.currentState.testing()
+          }).toThrow(Error)
+
+        expect(item.currentState).toBeInstanceOf(DoneState);
     });
 })
     

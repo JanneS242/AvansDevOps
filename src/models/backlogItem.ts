@@ -33,16 +33,25 @@ export class BacklogItem {
         this.activities.push(activity);
     }
 
-    public checkStatesOfActivities() : boolean{
+    public checkStatesOfActivitiesAreDone() : boolean{
         //check if all activities are done -> false if NOT
-        let allDone : boolean = false;
+        let notDoneActivities : Array<Activity> = new Array<Activity>;
+        // let allDone : boolean = false;
         
-        this.activities.forEach(activity => {
-            if(activity.currentState instanceof DoneState){
-                allDone = true;
-            } 
-        });
-
-        return allDone;
+        if(this.activities.length !== 0){
+            this.activities.forEach(activity => {
+                if(activity.currentState instanceof DoneState){
+                    console.log(`Activity ${activity.title} -> done`);
+                } else{
+                    notDoneActivities.push(activity);
+                }
+            });
+        }
+        
+        if(notDoneActivities.length !== 0){
+            return false; //false if something is not on Done
+        } else {
+            return true; //true if everything is on Done
+        }
     }
 }
