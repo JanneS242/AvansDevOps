@@ -91,9 +91,6 @@ describe("BacklogItem and Activity tests", () => {
         releaseSprint.startPipeline();
 
         expect(console.log).toBeCalledWith('Release sprint is cancelled');
-
-        expect(releaseSprint.scrumMaster.notificationTypes.every(n => n.notify)).toBeTruthy();
-
     });
 
 

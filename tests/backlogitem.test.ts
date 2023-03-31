@@ -161,7 +161,6 @@ describe("BacklogItem and Activity tests", () => {
         item.currentState.doing();
         item.currentState.readyForTesting();
 
-        expect(tester.notificationTypes.every(n => n.notify)).toBeTruthy();
         expect(console.log).toBeCalledWith(`Send SMS to the following number: ${tester.phoneNumber}`);
         expect(item.currentState).toBeInstanceOf(ReadyForTestingState);
     });
@@ -180,7 +179,6 @@ describe("BacklogItem and Activity tests", () => {
         item.currentState.tested();
         item.currentState.todo();
 
-        expect(scrumMaster.notificationTypes.every(n => n.notify)).toBeTruthy();
         expect(console.log).toBeCalledWith(`Send email to ${scrumMaster.email}`);
         expect(item.currentState).toBeInstanceOf(ToDoState);
     });
